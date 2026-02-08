@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>You Have No Choice 💖</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins:wght@300;500&display=swap" rel="stylesheet">
+
+<style>
+:root {
+  --pink: #ff4d88;
+  --rose: #ff9bbd;
+  --glass: rgba(255,255,255,0.6);
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(-45deg, #ffd6e8, #fff0f6, #ffe6f2, #ffd1dc);
+  background-size: 400% 400%;
+  animation: bgMove 15s ease infinite;
+}
+
+@keyframes bgMove {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* 🌹 ROSES */
+.roses {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  width: 140px;
+  background: url("https://i.imgur.com/0Z8FQJp.png") repeat-y;
+  background-size: contain;
+  opacity: 0.9;
+  animation: sway 6s ease-in-out infinite;
+  z-index: 0;
+}
+.left { left: 0; }
+.right { right: 0; transform: scaleX(-1); }
+
+@keyframes sway {
+  50% { transform: translateY(-20px); }
+}
+
+/* 🌸 APP */
+#app {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* 💌 CARD */
+.card {
+  width: 480px;
+  padding: 45px;
+  border-radius: 45px;
+  background: var(--glass);
+  backdrop-filter: blur(18px);
+  text-align: center;
+  box-shadow: 0 40px 90px rgba(255,77,136,0.55);
+  animation: glow 3s infinite;
+  position: relative;
+}
+
+@keyframes glow {
+  50% { box-shadow: 0 0 90px rgba(255,77,136,0.9); }
+}
+
+h1 {
+  font-family: 'Pacifico', cursive;
+  color: var(--pink);
+  font-size: 34px;
+}
+
+p { color: #444; }
+
+/* 🐶 SNOOPY */
+.snoopy-main {
+  width: 200px;
+  margin-bottom: 10px;
+}
+
+/* 🎀 ANIME CUTIES */
+.anime {
+  position: absolute;
+  width: 110px;
+  border-radius: 20px;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+}
+.anime.left { left: -70px; bottom: 60px; }
+.anime.right { right: -70px; top: 70px; }
+
+/* FLOATING */
+.floating {
+  position: fixed;
+  animation: float 6s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes float {
+  50% { transform: translateY(-25px); }
+}
+
+/* 💖 BUTTONS */
+.buttons {
+  position: relative;
+  height: 140px;
+  margin-top: 30px;
+}
+
+button {
+  padding: 14px 36px;
+  border-radius: 999px;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#yesBtn {
+  background: linear-gradient(135deg, #ff4d88, #ff85b3);
+  color: white;
+  position: absolute;
+  left: 15px;
+  top: 60px;
+  animation: heartbeat 1.5s infinite;
+}
+
+@keyframes heartbeat {
+  50% { transform: scale(1.1); }
+}
+
+#noBtn {
+  background: #ddd;
+  color: #333;
+  position: absolute;
+  right: 15px;
+}
+
+/* 💕 HEARTS */
+.heart {
+  position: fixed;
+  width: 18px;
+  height: 18px;
+  background: pink;
+  transform: rotate(45deg);
+  animation: rise 4s linear forwards;
+}
+.heart::before,
+.heart::after {
+  content: '';
+  position: absolute;
+  width: 18px;
+  height: 18px;
+  background: pink;
+  border-radius: 50%;
+}
+.heart::before { top: -9px; }
+.heart::after { left: -9px; }
+
+@keyframes rise {
+  to {
+    transform: translateY(-350px) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+/* ✨ SPARKLE */
+.sparkle {
+  position: fixed;
+  width: 6px;
+  height: 6px;
+  background: pink;
+  border-radius: 50%;
+  pointer-events: none;
+  animation: sparkle 1s forwards;
+}
+@keyframes sparkle {
+  to { transform: translateY(-20px); opacity: 0; }
+}
+
+/* 💌 MODAL */
+.modal {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.55);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+.modal-content {
+  background: white;
+  padding: 45px;
+  border-radius: 40px;
+  max-width: 520px;
+  max-height: 80vh; /* scrollable if text is too long */
+  overflow-y: auto; /* enable vertical scroll */
+  animation: pop 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.modal-content::-webkit-scrollbar {
+  width: 10px;
+}
+.modal-content::-webkit-scrollbar-track {
+  background: #ffe6f2;
+  border-radius: 10px;
+}
+.modal-content::-webkit-scrollbar-thumb {
+  background: #ff4d88;
+  border-radius: 10px;
+}
+
+@keyframes pop {
+  from { transform: scale(0.7); opacity: 0; }
+}
+
+.typewriter {
+  white-space: pre-line;
+  border-right: 2px solid var(--pink);
+  animation: blink 1s infinite;
+}
+@keyframes blink {
+  50% { border-color: transparent; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="roses left"></div>
+<div class="roses right"></div>
+
+<img class="floating" src="snoopy3O.jpg" style="width: 200px; top:10%; left:5%;">
+<img class="floating" src="snoopy4.jpg" style="width:220px; bottom:15%; right:6%; animation-duration:8s;">
+
+<div id="app">
+  <div class="card">
+
+    <img class="anime left" src="hellokitty.jpg">
+    <img class="anime right" src="hellokitty1.jpg">
+
+    <img class="snoopy-main" src="snoopy1.jpg">
+
+    <h1>Hey you 🌹</h1>
+    <p>Will you please read this?</p>
+
+    <div class="buttons" id="buttonArea">
+      <button id="yesBtn">YES 💖</button>
+      <button id="noBtn">No 🙃</button>
+    </div>
+
+  </div>
+</div>
+
+<!-- 💌 MODAL -->
+<div class="modal" id="modal">
+  <div class="modal-content">
+    <h2 style="color:#ff4d88;font-family:Pacifico">All I want to tell you Harry 💕</h2>
+    <p class="typewriter" id="letter"></p>
+    <button onclick="closeModal()" style="margin-top:20px">AAAAYYYYEEEEIII 💞</button>
+  </div>
+</div>
+
+<script>
+const noBtn = document.getElementById("noBtn");
+const yesBtn = document.getElementById("yesBtn");
+const buttonArea = document.getElementById("buttonArea");
+const modal = document.getElementById("modal");
+const letter = document.getElementById("letter");
+
+// NO BUTTON TELEPORT
+noBtn.addEventListener("click", () => {
+  const area = buttonArea.getBoundingClientRect();
+  noBtn.style.left = Math.random() * (area.width - 80) + "px";
+  noBtn.style.top = Math.random() * (area.height - 40) + "px";
+});
+
+// YES BUTTON
+yesBtn.addEventListener("click", () => {
+  modal.style.display = "flex";
+  typeLetter();
+  heartRain();
+});
+
+// 💌 CONFESSION TEXT
+const text = `
+Harry,
+
+I honestly don’t know where to begin because every time I see you, my heart does this little flip and my brain goes, “Wow… she’s really something.” You have this light about you... your laugh, your smile, the way your eyes shine when you talk about something you love… it’s magical. You’re beautiful, yes, but more than that, you’re kind, smart, funny, and genuinely amazing in ways that words can hardly describe.
+
+Boss Madaaaammmm Kooo... I know I tease you with that nickname, but it’s because I can’t help but admire the way you carry yourself. You’re strong, confident, and yet so warm. You make people feel safe, happy, and seen. And I want to be someone who sees all of that in you, who cherishes every bit of it, and who always reminds you how incredible you are.
+
+My intentions are simple and honest. I want to take care of you, support you, and love you in every way I can. Gusto tika hatagan og kalipay, bisan sa gagmay nga butang, ug gusto ko nga ikaw pirmi maka feel nga loved ug valued ka, cause you really deserve it. I want to choose you every single day, not because I have to, but because I truly want to.
+
+I dream of small things with you... sitting under the stars, laughing at silly jokes, sharing quiet moments when it feels like the world stops just for us. I dream of being the person you can rely on, who will cheer for your victories, lift you when you’re down, and hold you close through everything life throws our way.
+
+You’ve completely changed how I see love. I used to think I understood it, but then I met you, and suddenly, I realized love could feel soft, strong, playful, endless, and so full of joy all at once. Ikaw ra gyud ang akong pilion, sa tanang adlaw ug tanang higayon. No one else even comes close.
+
+Every heartbeat, every thought, every smile I give, it’s for you. I love the way you make ordinary moments feel special. I love the way your energy fills a room. I love the way you are unapologetically you. 
+
+I may not be perfect. I may stumble or say the wrong thing sometimes. Pero bisan unsa pa man, akong love for you is constant, sincere, and endless. I want to build memories with you, laugh until our cheeks hurt, share dreams, and create a world where we’re happy together.
+
+You are my favorite person, and I hope, someday, I can be your favorite place to be. I want to be the one who sees you, truly, deeply, and loves every piece of you... your mind, your heart, your soul, your quirks… everything that makes you you.
+
+Harry, I don’t just like you. I don’t just admire you. I love you... genuinely, fiercely, playfully, endlessly. And if you let me, I promise to spend every day showing you just how much you mean to me.
+
+— Always yours,
+Mr. Elejorde
+`;
+
+// TYPEWRITER FUNCTION
+function typeLetter() {
+  let i = 0;
+  letter.textContent = "";
+  const t = setInterval(() => {
+    letter.textContent += text[i++];
+    letter.scrollTop = letter.scrollHeight; // auto-scroll down
+    if (i >= text.length) clearInterval(t);
+  }, 35);
+}
+
+// HEART RAIN
+function heartRain() {
+  const rain = setInterval(() => {
+    const h = document.createElement("div");
+    h.className = "heart";
+    h.style.left = Math.random() * window.innerWidth + "px";
+    h.style.top = window.innerHeight + "px";
+    document.body.appendChild(h);
+    setTimeout(() => h.remove(), 4000);
+  }, 200);
+}
+
+// SPARKLE CURSOR
+document.addEventListener("mousemove", e => {
+  const s = document.createElement("div");
+  s.className = "sparkle";
+  s.style.left = e.clientX + "px";
+  s.style.top = e.clientY + "px";
+  document.body.appendChild(s);
+  setTimeout(() => s.remove(), 1000);
+});
+
+// CLOSE MODAL
+function closeModal() {
+  modal.style.display = "none";
+}
+</script>
+
+</body>
+</html>
